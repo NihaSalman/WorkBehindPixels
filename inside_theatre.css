@@ -1,0 +1,123 @@
+img {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; }
+
+body {
+    margin: 0;
+    overflow: hidden; 
+}
+
+.button a{
+    position: absolute;
+    writing-mode: vertical-rl;
+    bottom: 25%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 60px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+    opacity: 0;
+}
+.button2 a{
+    position: absolute;
+    writing-mode: vertical-rl;
+    bottom: 32%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 40px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+    opacity: 0;
+}
+.button3 a{
+    position: absolute;
+    writing-mode: vertical-rl;
+    bottom: 25%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 30px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+    opacity: 0;
+}
+.button4 a{
+    position: absolute;
+    writing-mode: vertical-rl;
+    bottom: 36%;
+    left: 67%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 35px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+    opacity: 0;
+}
+.button5 a{
+    position: absolute;
+    writing-mode: vertical-rl;
+    bottom: 26%;
+    left: 84%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 35px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+    opacity: 0;
+}
+
+#mute-symbol {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: white;
+    z-index: 1;
+}
+#back-arrow {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    opacity: 50%;
+    z-index: 1;
+}
+#back-text{
+    position: fixed;
+    bottom: -10px;
+    left: 60px;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+    color: rgb(178, 132, 91); 
+    font-family: 'DotGothic16', sans-serif; 
+}
+#go-back-button {
+    position: fixed;
+    top: 5px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+    color: rgb(205, 139, 81); 
+    font-family: 'DotGothic16', sans-serif; }

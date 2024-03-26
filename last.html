@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Story through Pixels</title>
+    <link rel="stylesheet" href="education.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+    <style>
+        #back-text{
+            position: fixed;
+            bottom: -10px;
+            left: 60px;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1;
+            color: #d1d6b0; 
+            font-family: 'DotGothic16', sans-serif; }
+        #go-back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            z-index: 1;
+            font-size: 20px;
+            color: #d1d6b0; 
+            font-family: 'DotGothic16', sans-serif; 
+            }
+    </style>
+</head>
+<body onclick="toggleAudio()">
+    <!-- the audio -->
+    <audio id="background-audio" loop>
+        <source src="rain-on-metal-roof-with-distant-thunder.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <!-- Back arrow symbol -->
+    <img id="back-arrow" src="arrow.png" alt="Back" onclick="goBack()">
+    <span id="back-text" style="margin-left: 5px;">Back</span>
+    <a href="boat.html">
+        <div id="go-back-button">
+            back to main page
+        </div>
+    </a> 
+    <!-- Mute/unmute symbol -->
+    <div id="mute-symbol">🔊</div>
+    <video autoplay loop muted>
+        <source src="lab.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <script>
+         function goBack() {
+            window.history.back();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                muteSymbol.innerHTML = '🔇';
+            } else {
+                muteSymbol.innerHTML = '🔊';
+            }
+        });
+
+        function toggleAudio() {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                audio.play();
+                muteSymbol.innerHTML = '🔊';
+            } else {
+                audio.pause();
+                muteSymbol.innerHTML = '🔇';
+            }
+        }
+        // Function to handle click on the button
+        function handleButtonClick(event) {
+            event.stopPropagation(); // Prevent click event from propagating
+        }
+
+        // Add event listener to the button to prevent music from starting when clicked
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('go-back-button');
+            button.addEventListener('click', handleButtonClick);
+        });
+    </script>
+</body>
+</html>

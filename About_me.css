@@ -1,0 +1,112 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /*Note:  Prevent scrollbars */
+}
+
+body::before {   
+    content: "";
+    display: block;
+}
+
+img {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%; 
+    height: 100%;
+}
+
+.button a{
+    position: absolute;
+    bottom: 48%;
+    left: 7%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 40px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+    opacity: 0;
+}
+.button2 a{
+    position: absolute;
+    bottom: 49%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 25px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+    opacity: 0;
+}
+.button3 a{
+    position: absolute;
+    bottom: 51%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 15px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+    opacity: 0;
+}
+.button4 a{
+    position: absolute;
+    bottom: 50%;
+    left: 92%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 65px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+    opacity: 0;
+}
+
+#mute-symbol {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: white;
+    z-index: 1;
+}
+
+#back-arrow {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 1;
+}
+#back-text{
+    position: fixed;
+    bottom: -10px;
+    left: 60px;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+}
+#go-back-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 20px;
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+}

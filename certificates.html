@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Story through Pixels</title>
+    <link rel="stylesheet" href="beginning.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+    <style>
+        .button a{
+            position: absolute;
+            bottom: 70%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 40px; 
+            color: #d1d6b0; 
+            font-family: 'DotGothic16', sans-serif; 
+            opacity: 0;
+        }
+        .button2 a{
+            position: absolute;
+            bottom: 70%;
+            left: 63.5%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 40px; 
+            color: #d1d6b0; 
+            font-family: 'DotGothic16', sans-serif; 
+            opacity: 0;
+        }
+        .button3 a{
+            position: absolute;
+            writing-mode: vertical-rl;
+            bottom: 35%;
+            left: 36%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 40px; 
+            color: #d1d6b0; 
+            font-family: 'DotGothic16', sans-serif;
+            opacity: 0; 
+        }
+        .button4 a{
+            position: absolute;
+            bottom: 43%;
+            left: 64%;
+            transform: translate(-50%, -50%);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 40px; 
+            color: #d1d6b0; 
+            font-family: 'DotGothic16', sans-serif; 
+            opacity: 0;
+        }
+    </style>
+</head>
+<body onclick="toggleAudio()">
+    <!-- the audio -->
+    <audio id="background-audio" loop>
+        <source src="record-stuck-at-end.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <!-- Back arrow symbol -->
+    <img id="back-arrow" src="arrow.png" alt="Back" onclick="goBack()">
+    <span id="back-text" style="margin-left: 5px;">Back</span>
+    <!-- Mute/unmute symbol -->
+    <div id="mute-symbol">🔊</div>
+    <!-- vinyl photo -->
+    <img src="vinyl.jpg" usemap="#image_map">
+    <button class="button"><a href="UniversityRecord.html">Enter</a></button>
+    <button class="button2"><a href="HighSchoolCertificates.html">Enter</a></button>
+    <button class="button3"><a href="OtherCertificates.html">Enter</a></button> 
+    <button class="button4"><a href="RecommendationLetter.html">Enter</a></button>
+
+    <!-- go back to the boat page -->
+    <a href="boat.html">
+        <div id="go-back-button">
+            back to main page
+        </div>
+    </a> 
+    
+    <script>
+        // Function to go back in history
+        function goBack() {
+            window.history.back();
+        }
+
+        // Function to set initial mute/unmute symbol based on audio state
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                muteSymbol.innerHTML = '🔇';
+            } else {
+                muteSymbol.innerHTML = '🔊';
+            }
+        });
+
+        // Function to toggle audio play/pause and update mute/unmute symbol
+        function toggleAudio() {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                audio.play();
+                muteSymbol.innerHTML = '🔊';
+            } else {
+                audio.pause();
+                muteSymbol.innerHTML = '🔇';
+            }
+        }
+
+        // Add event listeners to map area elements to handle click events
+        document.addEventListener('DOMContentLoaded', function () {
+            var mapAreas = document.querySelectorAll('area');
+            mapAreas.forEach(function (area) {
+                area.addEventListener('click', handleMapClick);
+            });
+        });
+        // Function to handle click on the button
+        function handleButtonClick(event) {
+            event.stopPropagation(); // Prevent click event from propagating
+        }
+
+        // Add event listener to the button to prevent music from starting when clicked
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('go-back-button');
+            button.addEventListener('click', handleButtonClick);
+        });
+    </script>
+</body>
+</html>

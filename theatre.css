@@ -1,0 +1,73 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; 
+}
+
+video {
+    position: fixed;
+    right: 0;
+    bottom: -50px;
+    min-width: 100%; 
+    min-height: 100%;
+}
+
+.button a{
+    position: absolute;
+    top: 90%;
+    left: 48.2%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px; 
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+}
+
+
+#mute-symbol {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: white;
+    z-index: 1;
+}
+#back-arrow {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 1;
+}
+#back-text{
+    position: fixed;
+    bottom: -10px;
+    left: 60px;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+}
+#go-back-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 20px;
+    color: #d1d6b0; 
+    font-family: 'DotGothic16', sans-serif; 
+}

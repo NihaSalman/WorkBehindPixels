@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+    <title>My Story through Pixels</title>
+    <link rel="stylesheet" href="About_me.css">
+
+</head>
+<body onclick="toggleAudio()">
+    <!--the audio-->
+    <audio id="background-audio" loop>
+        <source src="arcade room.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+     <!-- mute symbol -->
+     <div id="mute-symbol">🔊</div>
+    <!-- back arrow -->
+    <img id="back-arrow" src="arrow.png" alt="Back" onclick="goBack()">
+    <span id="back-text" style="margin-left: 5px;">Back</span>
+    <!-- main page button -->
+    <a href="boat.html">
+        <div id="go-back-button">
+            back to main page
+        </div>
+    </a> 
+    <!-- the arcade image -->
+    <div class="image-container">
+        <img src="image1.png" alt="Image 1" id="image1" usemap="#image_map">
+        <img src="image2.png" alt="Image 2" id="image2" usemap="#image_map">
+        <button class="button"><a href="Beginning.html">Enter</a></button>
+        <button class="button2"><a href="education.html">Enter</a></button>
+        <button class="button3"><a href="hobbies.html">Enter</a></button> 
+        <button class="button4"><a href="last.html">Enter</a></button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Function to go back in history
+        function goBack() {
+            window.history.back();
+        }
+
+        // Function to set initial mute/unmute symbol based on audio state
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                muteSymbol.innerHTML = '🔇';
+            } else {
+                muteSymbol.innerHTML = '🔊';
+            }
+        });
+
+        // Function to toggle audio play/pause and update mute/unmute symbol
+        function toggleAudio() {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                audio.play();
+                muteSymbol.innerHTML = '🔊';
+            } else {
+                audio.pause();
+                muteSymbol.innerHTML = '🔇';
+            }
+        }
+
+        // Function to handle click on the button
+        function handleButtonClick(event) {
+            event.stopPropagation(); // Prevent click event from propagating
+        }
+
+        // Add event listener to the button to prevent music from starting when clicked
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('go-back-button');
+            button.addEventListener('click', handleButtonClick);
+        });
+    </script>
+
+</body>
+</html>

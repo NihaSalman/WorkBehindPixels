@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Story through Pixels</title>
+    <link rel="stylesheet" href="education.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+    <style>
+        #back-arrow {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        #start-text{
+            position: fixed;
+            bottom: -10px;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1;
+            color: white;
+            font-family: 'DotGothic16', sans-serif; 
+        }
+        #back-text{
+            position: fixed;
+            bottom: -10px;
+            left: 60px;
+            width: 60px;
+            height: 60px;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 1;
+            color: #d1d6b0; 
+            font-family: 'DotGothic16', sans-serif; 
+            white-space: nowrap; 
+        }
+    </style>
+</head>
+
+<body onclick="toggleAudio()">
+    <!-- the audio -->
+    <audio id="background-audio" loop>
+        <source src="sea-at-night.mp3" type="audio/mp3">
+    </audio>
+    <!-- Back arrow symbol -->
+    <a href="index.html">
+        <img id="back-arrow" src="arrow.png" alt="Back">
+    </a>
+    <!-- going to the first page of the website -->
+    <a href="main_page.html">
+        <span id="start-text" style="margin-left: 5px;">Start</span>
+    </a>
+    <!-- back button -->
+    <span id="back-text" style="margin-left: 5px;">Back</span>   
+    <!-- Mute/unmute symbol -->
+    <div id="mute-symbol">🔊</div>
+    <video autoplay loop muted>
+        <source src="boat.mov" type="video/mp4">
+    </video>
+    <script>
+        //mute unmute function
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                muteSymbol.innerHTML = '🔇';
+            } else {
+                muteSymbol.innerHTML = '🔊';
+            }
+        });
+
+        function toggleAudio() {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                audio.play();
+                muteSymbol.innerHTML = '🔊';
+            } else {
+                audio.pause();
+                muteSymbol.innerHTML = '🔇';
+            }
+        }
+        // Function to handle click on the button
+        function handleButtonClick(event) {
+            event.stopPropagation(); // Prevent click event from propagating
+        }
+
+        // Add event listener to the button to prevent music from starting when clicked
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('go-back-button');
+            button.addEventListener('click', handleButtonClick);
+        });
+    </script>
+</body>
+</html>

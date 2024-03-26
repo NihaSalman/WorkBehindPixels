@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+    <title>My Story through Pixels</title>
+    <link rel="stylesheet" href="inside_theatre.css">
+    <style>
+        #back-arrow {
+            position: fixed;
+            bottom: 91%;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            opacity: 100%;
+            z-index: 1;
+        }
+        #back-text{
+            position: fixed;
+            bottom: 88%;
+            left: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1;
+            color: rgb(163, 176, 183); 
+            font-family: 'DotGothic16', sans-serif; 
+        }
+        #go-back-button {
+            position: fixed;
+            top: 3.5%;
+            left: 10%;
+            cursor: pointer;
+            z-index: 1;
+            font-size: 20px;
+            color: rgb(163, 176, 183); 
+            font-family: 'DotGothic16', sans-serif; 
+        }
+    </style>
+</head>
+<body onclick="toggleAudio()">
+    <!-- the audio -->
+    <audio id="background-audio" loop>
+        <source src="police-station-atmosphere.mp3" type="audio/mp3">
+    </audio>
+    <!-- Back arrow symbol -->
+    <img id="back-arrow" src="arrow.png" alt="Back" onclick="goBack()">
+    <span id="back-text" style="margin-left: 5px;">Back</span>
+    <!-- back to the boat page! -->
+    <a href="boat.html">
+        <div id="go-back-button">
+            back to main page
+        </div>
+    </a> 
+    <!-- Mute/unmute symbol -->
+    <div id="mute-symbol">🔊</div>
+    <img src="Contact.png" usemap="#image_map">
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        var audio = document.getElementById('background-audio');
+        var muteSymbol = document.getElementById('mute-symbol');
+
+        if (audio.paused) {
+            muteSymbol.innerHTML = '🔇';
+        } else {
+            muteSymbol.innerHTML = '🔊';
+        }
+    });
+
+    function toggleAudio() {
+        var audio = document.getElementById('background-audio');
+        var muteSymbol = document.getElementById('mute-symbol');
+
+        if (audio.paused) {
+            audio.play();
+            muteSymbol.innerHTML = '🔊';
+        } else {
+            audio.pause();
+            muteSymbol.innerHTML = '🔇';
+        }
+    }
+    // Function to handle click on the button
+    function handleButtonClick(event) {
+        event.stopPropagation(); // Prevent click event from propagating
+    }
+
+    // Add event listener to the button to prevent music from starting when clicked
+    document.addEventListener('DOMContentLoaded', function () {
+        var button = document.getElementById('go-back-button');
+        button.addEventListener('click', handleButtonClick);
+    });
+    </script>
+</body>
+</html>

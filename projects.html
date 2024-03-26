@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+    <title>My Story through Pixels</title>
+    <style>
+        img {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%; 
+            height: 100%;
+            object-fit: cover; 
+        }
+        body {
+            margin: 0;
+            overflow: hidden; 
+        }
+        #back-arrow {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        #back-text{
+            position: fixed;
+            bottom: -10px;
+            left: 60px;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1;
+            color: black; 
+            font-family: 'DotGothic16', sans-serif; 
+        }
+        #go-back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            z-index: 1;
+            font-size: 20px;
+            color: black; 
+            font-family: 'DotGothic16', sans-serif; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Back arrow symbol -->
+    <img id="back-arrow" src="arrow.png" alt="Back" onclick="goBack()">
+    <span id="back-text" style="margin-left: 5px;">Back</span>
+    <img src="construction.jpg" usemap="#image_map">
+    <!--boat-->
+    <a href="boat.html">
+        <div id="go-back-button">
+            back to main page
+        </div>
+    </a> 
+    <script>
+        function goBack() {
+        window.history.back();
+    }
+        // Function to handle click on the button
+        function handleButtonClick(event) {
+            event.stopPropagation(); // Prevent click event from propagating
+        }
+
+        // Add event listener to the button to prevent music from starting when clicked
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('go-back-button');
+            button.addEventListener('click', handleButtonClick);
+    });
+    </script> 
+</body>
+</html>

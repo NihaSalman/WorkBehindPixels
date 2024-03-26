@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Story through Pixels</title>
+    <link rel="stylesheet" href="beginning.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+</head>
+<body onclick="toggleAudio()">
+    <audio id="background-audio" loop>
+        <source src="merx-market-song.mp3" type="audio/mp3">
+    </audio>
+    <img id="back-arrow" src="arrow.png" alt="Back" onclick="goBack()">
+    <span id="back-text">Back</span>
+    <a href="boat.html">
+        <div id="go-back-button">
+            Back to Main Page
+        </div>
+    </a> 
+    <div id="mute-symbol">🔊</div>
+    <div id="container">
+        <div id="image_container">
+            <img src="Street.png">
+        </div>
+    </div>
+    <script>
+        //go back function
+        function goBack() {
+            window.history.back();
+        }
+        //mute unmute function
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                muteSymbol.innerHTML = '🔇';
+            } else {
+                muteSymbol.innerHTML = '🔊';
+            }
+        });
+        function toggleAudio() {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                audio.play();
+                muteSymbol.innerHTML = '🔊';
+            } else {
+                audio.pause();
+                muteSymbol.innerHTML = '🔇';
+            }
+        }
+
+        // Function to handle click on the button
+        function handleButtonClick(event) {
+            event.stopPropagation(); // Prevent click event from propagating
+        }
+
+        // Add event listener to the button to prevent music from starting when clicked
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('go-back-button');
+            button.addEventListener('click', handleButtonClick);
+        });
+    </script>
+</body>
+</html>

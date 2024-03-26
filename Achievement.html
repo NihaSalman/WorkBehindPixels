@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Story through Pixels</title>
+    <link rel="stylesheet" href="Achievement.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+
+</head>
+<body onclick="toggleAudio()">
+    <!-- the audio -->
+    <audio id="background-audio" loop>
+        <source src="howling-wind.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <!-- back arrow -->
+    <img id="back-arrow" src="arrow.png" alt="Back" onclick="goBack()">
+    <span id="back-text" style="margin-left: 5px;">Back</span>
+    <!-- main page button -->
+    <a href="boat.html">
+        <div id="go-back-button">
+            back to main page
+        </div>
+      </a>
+    <!-- Mute/unmute symbol -->
+    <div id="mute-symbol">🔊</div>
+    <!-- the two egyptian images -->
+    <div class="image-container">
+        <button class="clickable-button" onclick="location.href='certificates.html'">enter</button>
+        <button class="clickable-button2" onclick="location.href='certificates.html'">er</button>
+        <img class="normal-image" src="morning.png" alt="Normal Image">
+        <img class="hover-image" src="night.png" alt="Hover Image" usemap="#image_map">
+    </div>
+
+    <script>
+         // Function to handle click on map area elements
+        function handleMapClick(event) {
+            event.stopPropagation(); // Prevent click event from propagating
+        }
+
+        // Function to go back in history
+        function goBack() {
+            window.history.back();
+        }
+
+        // Function to set initial mute/unmute symbol based on audio state
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                muteSymbol.innerHTML = '🔇';
+            } else {
+                muteSymbol.innerHTML = '🔊';
+            }
+        });
+
+        // Function to toggle audio play/pause and update mute/unmute symbol
+        function toggleAudio() {
+            var audio = document.getElementById('background-audio');
+            var muteSymbol = document.getElementById('mute-symbol');
+
+            if (audio.paused) {
+                audio.play();
+                muteSymbol.innerHTML = '🔊';
+            } else {
+                audio.pause();
+                muteSymbol.innerHTML = '🔇';
+            }
+        }
+
+        // Add event listeners to map area elements to handle click events
+        document.addEventListener('DOMContentLoaded', function () {
+            var mapAreas = document.querySelectorAll('area');
+            mapAreas.forEach(function (area) {
+                area.addEventListener('click', handleMapClick);
+            });
+        });
+
+        // Function to handle click on the button
+        function handleButtonClick(event) {
+            event.stopPropagation(); // Prevent click event from propagating
+        }
+
+        // Add event listener to the button to prevent music from starting when clicked
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('go-back-button');
+            button.addEventListener('click', handleButtonClick);
+        });
+    </script>
+</body>
+</html>
+
+
